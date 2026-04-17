@@ -11,7 +11,6 @@
 
 #define M 5
 
-
 int piezas = 0;          // asumimos que el recipiente arranca vacío
 
 sem_t mutex = 1;         // exclusión mutua para acceder a piezas

@@ -20,7 +20,7 @@ void reader() {
     sem_wait(&mutex_rc);
     if (rc == 0) {
         // el primer reader bloquea la base para writers
-        sem_wait(&db);
+        sem_wait(&db_access);
     }
     rc++;
     sem_post(&mutex_rc);
@@ -32,7 +32,7 @@ void reader() {
     rc--;
     if (rc == 0) {
         // el último reader libera la base
-        sem_post(&db);
+        sem_post(&db_access);
     }
     sem_post(&mutex_rc);
 }
